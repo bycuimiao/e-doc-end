@@ -31,3 +31,7 @@ extensions n. 扩展，扩张；延长（extension的复数）
 buzz n. 嗡嗡声；唧唧喳喳的谈话声；
 shiny adj. 光滑的，有光泽的，闪亮的  
 mistakes n. 错误（mistake的复数形式）
+
+### section 3
+TODO
+### word 3
