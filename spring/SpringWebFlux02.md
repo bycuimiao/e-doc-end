@@ -60,6 +60,7 @@ taken from the outside world): in a GUI situation, the position of
 the mouse would be a good example.  
 FRP has a strong affinity with high-performance, concurrency, asynchronous operations and non-blocking IO. However, it might be helpful to start with a suspicion that FRP has nothing to do with any of them. It is certainly the case that such concerns can be naturally handled, often transparently to the caller, when using a Reactive model. But the actual benefit, in terms of handling those concerns effectively or efficiently is entirely up to the implementation in question (and therefore should be subject to a high degree of scrutiny). It is also possible to implement a perfectly sane and useful FRP framework in a synchronous, single-threaded way, but that isn’t really likely to be helpful in trying to use any of the new tools and libraries.
 ### word 5
+pot vt. 把…装罐；射击；节略 n. 壶；盆；罐  
 potted adj. 盆栽的；罐装的；密封的；喝醉的  
 intuition n. 直觉；直觉力；直觉的知识  
 spreadsheet n. 电子制表软件；电子数据表；试算表  
