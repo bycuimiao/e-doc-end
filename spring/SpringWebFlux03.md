@@ -66,3 +66,21 @@ consequence n. 结果；重要性；推论
 ### section 14
 Deferred results (Futures) Java 1.5 introduced a rich new set of libraries including Doug Lea’s "java.util.concurrent", and part of that is the concept of a deferred result, encapsulated in a Future. It’s a good example of a simple abstraction over an asynchronous pattern, without forcing the implementation to be asynchronous, or use any particular model of asynchronous processing. As the Netflix Tech Blog: Functional Reactive in the Netflix API with RxJava shows nicely, Futures are great when all you need is concurrent processing of a set of similar tasks, but as soon as any of them want to depend on each other or execute conditionally you get into a form of "nested callback hell". Reactive Programming provides an antidote to that.
 ### word 14
+deferred adj. 延期的  
+encapsulated v. 压缩（encapsulate的过去分词）；封进内部；装入胶囊  
+antidote n. [药] 解毒剂；解药；矫正方法  
+nested callback hell 嵌套回调地狱
+
+### section 15
+Map-reduce and fork-join Abstractions over parallel processing are useful and there are many examples to choose from. Map-reduce and fork-join that have evolved recently in the Java world, driven by massively parallel distributed processing (MapReduce and Hadoop) and by the JDK itself in version 1.7 (Fork-Join). These are useful abstractions but (like deferred results) they are shallow compared to FRP, which can be used as an abstraction over simple parallel processing, but which reaches beyond that into composability and declarative communication.
+### word 15
+evolve vt. 发展；进化；  
+shallow adj. 浅的；肤浅的
+
+### section 16
+Coroutines  
+A "coroutine" is a generalization of a "subroutine" — it has an entry point, and exit point(s) like a subroutine, but when it exits it passes control to another coroutine (not necessarily to its caller), and whatever state it accumulated is kept and remembered for the next time it is called. Coroutines can be used as a building block for higher level features like Actors and Streams. One of the goals of Reactive Programming is to provide the same kind of abstraction over communicating parallel processing agents, so coroutines (if they are available) are a useful building block. There are various flavours of coroutines, some of which are more restrictive than the general case, but more flexible than vanilla subroutines. Fibers (see the discussion on Event Machine) are one flavour, and Generators (familiar in Scala and Python) are another.
+### word 16
+generalization n. 概括；普遍化；一般化  
+subroutine 子程序 ps:coroutine协同程序、协程  
+restrictive adj. 限制的；限制性的；约束的  
