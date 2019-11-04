@@ -14,9 +14,10 @@ frustration n. 挫折
 optimize vt. 使最优化，使完善 vi. 优化；持乐观态度
 composability 可组合性
 
-### section 8Deferred results (Futures) Java 1.5 introduced a rich new set of libraries including Doug Lea’s "java.util.concurrent", and part of that is the concept of a deferred result, encapsulated in a Future. It’s a good example of a simple abstraction over an asynchronous pattern, without forcing the implementation to be asynchronous, or use any particular model of asynchronous processing. As the Netflix Tech Blog: Functional Reactive in the Netflix API with RxJava shows nicely, Futures are great when all you need is concurrent processing of a set of similar tasks, but as soon as any of them want to depend on each other or execute conditionally you get into a form of "nested callback hell". Reactive Programming provides an antidote to that.
+### section 8  
+Deferred results (Futures) Java 1.5 introduced a rich new set of libraries including Doug Lea’s "java.util.concurrent", and part of that is the concept of a deferred result, encapsulated in a Future. It’s a good example of a simple abstraction over an asynchronous pattern, without forcing the implementation to be asynchronous, or use any particular model of asynchronous processing. As the Netflix Tech Blog: Functional Reactive in the Netflix API with RxJava shows nicely, Futures are great when all you need is concurrent processing of a set of similar tasks, but as soon as any of them want to depend on each other or execute conditionally you get into a form of "nested callback hell". Reactive Programming provides an antidote to that.
 Highly Concurrent Message Consumers Message processing, in particular when it is highly concurrent, is a common enterprise use case. Reactive frameworks like to measure micro benchmarks, and brag about how many messages per second you can process in the JVM. The results are truly staggering (tens of millions of messages per second are easy to achieve), but possibly somewhat artificial - you wouldn’t be so impressed if they said they were benchmarking a simple "for" loop. However, we should not be too quick to write off such work, and it’s easy to see that when performance matters, all contributions should be gratefully accepted. Reactive patterns fit naturally with message processing (since an event translates nicely into a message), so if there is a way to process more messages faster we should pay attention.
-### word 8
+### word 8  
 measure n. 测量；措施；程度；尺寸 vt. 测量；估量；权衡  
 benchmarks n. [计] 基准；标竿；水准点；基准测试程序数值（benchmark的复数形式）  
 brag v. 吹牛，吹嘘；夸耀  
