@@ -46,5 +46,5 @@ Reactive Streams is a small spec (also adopted in Java 9) that defines the inter
 mechanism n. 机制；原理，途径；  
 overwhelm vt. 淹没；压倒；压垮  
 imperative adj. 必要的，不可避免的；紧急的；  
-spec 说明书； 同义specification  
+spec 说明书；规格 同义specification  
 adopt vt. 采取；接受；  
