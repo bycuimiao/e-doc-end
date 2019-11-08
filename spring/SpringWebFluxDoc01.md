@@ -58,8 +58,6 @@ Reactive Streams plays an important role for interoperability. It is of interest
 
 Reactor is the reactive library of choice for Spring WebFlux. It provides the Mono and Flux API types to work on data sequences of 0..1 (Mono) and 0..N (Flux) through a rich set of operators aligned with the ReactiveX vocabulary of operators. Reactor is a Reactive Streams library and, therefore, all of its operators support non-blocking back pressure. Reactor has a strong focus on server-side Java. It is developed in close collaboration with Spring.  
 
-TODO  
-
 WebFlux requires Reactor as a core dependency but it is interoperable with other reactive libraries via Reactive Streams. As a general rule, a WebFlux API accepts a plain Publisher as input, adapts it to a Reactor type internally, uses that, and returns either a Flux or a Mono as output. So, you can pass any Publisher as input and you can apply operations on the output, but you need to adapt the output for use with another reactive library. Whenever feasible (for example, annotated controllers), WebFlux adapts transparently to the use of RxJava or another reactive library. See Reactive Libraries for more details.
 
 In addition to Reactive APIs, WebFlux can also be used with Coroutines APIs in Kotlin which provides a more imperative style of programming. The following Kotlin code samples will be provided with Coroutines APIs.  
@@ -68,3 +66,21 @@ In addition to Reactive APIs, WebFlux can also be used with Coroutines APIs in K
 infrastructure n. 基础设施；公共建设；下部构  
 align  vt. 使结盟；使成一行；匹配  
 collaboration n. 合作；勾结；通敌  
+feasible adj. 可行的；可能的；可实行的  
+
+###1.1.3. Programming Models
+   The spring-web module contains the reactive foundation that underlies Spring WebFlux, including HTTP abstractions, Reactive Streams adapters for supported servers, codecs, and a core WebHandler API comparable to the Servlet API but with non-blocking contracts.
+   
+   On that foundation, Spring WebFlux provides a choice of two programming models:
+   
+   Annotated Controllers: Consistent with Spring MVC and based on the same annotations from the spring-web module. Both Spring MVC and WebFlux controllers support reactive (Reactor and RxJava) return types, and, as a result, it is not easy to tell them apart. One notable difference is that WebFlux also supports reactive @RequestBody arguments.
+   
+   Functional Endpoints: Lambda-based, lightweight, and functional programming model. You can think of this as a small library or a set of utilities that an application can use to route and handle requests. The big difference with annotated controllers is that the application is in charge of request handling from start to finish versus declaring intent through annotations and being called back.
+### word
+underlie vt. 成为……的基础；位于……之下  
+adapters for supported servers 用于支持的服务的
+notable adj. 值得注意的，显著的；著名的  
+utilities n. 公用事业；实用工具，[计] 实用程序；公共事业设备；公用程式（utility的复数）  
+versus prep. 对，对抗；与……相对，与……相比  
+intent n. 意图；目的；含义  
+in charge of 负责；主管  
