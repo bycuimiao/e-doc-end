@@ -84,3 +84,23 @@ utilities n. 公用事业；实用工具，[计] 实用程序；公共事业设�
 versus prep. 对，对抗；与……相对，与……相比  
 intent n. 意图；目的；含义  
 in charge of 负责；主管  
+
+###1.1.4. Applicability
+   Spring MVC or WebFlux?
+   
+   A natural question to ask but one that sets up an unsound dichotomy. Actually, both work together to expand the range of available options. The two are designed for continuity and consistency with each other, they are available side by side, and feedback from each side benefits both sides. The following diagram shows how the two relate, what they have in common, and what each supports uniquely:
+   
+### word
+unsound adj. 不健全的；不健康的；谬误的；腐烂的；不牢靠的  
+dichotomy n. 二分法；两分；分裂；双歧分枝  
+continuity n. 连续性；一连串；分镜头剧本  
+consistency n. [计] 一致性；稠度；相容性  
+
+###
+We suggest that you consider the following specific points:
+   
+   If you have a Spring MVC application that works fine, there is no need to change. Imperative programming is the easiest way to write, understand, and debug code. You have maximum choice of libraries, since, historically, most are blocking.
+   
+   If you are already shopping for a non-blocking web stack, Spring WebFlux offers the same execution model benefits as others in this space and also provides a choice of servers (Netty, Tomcat, Jetty, Undertow, and Servlet 3.1+ containers), a choice of programming models (annotated controllers and functional web endpoints), and a choice of reactive libraries (Reactor, RxJava, or other).
+### word  
+Imperative programming 命令式编程
