@@ -140,3 +140,40 @@ assemble vt. 集合，聚集；装配；收集
    Performance has many characteristics and meanings. Reactive and non-blocking generally do not make applications run faster. They can, in some cases, (for example, if using the WebClient to execute remote calls in parallel). On the whole, it requires more work to do things the non-blocking way and that can increase slightly the required processing time.
    
    The key expected benefit of reactive and non-blocking is the ability to scale with a small, fixed number of threads and less memory. That makes applications more resilient under load, because they scale in a more predictable way. In order to observe those benefits, however, you need to have some latency (including a mix of slow and unpredictable network I/O). That is where the reactive stack begins to show its strengths, and the differences can be dramatic.  
+### word
+characteristics n. 特性，特征；特色（characteristic的复数）；特质  
+resilient adj. 弹回的，有弹力的；能复原的；可迅速恢复的  
+latency n. 潜伏；潜在因素  
+
+### 1.1.7. Concurrency Model
+Both Spring MVC and Spring WebFlux support annotated controllers, but there is a key difference in the concurrency model and the default assumptions for blocking and threads.
+
+In Spring MVC (and servlet applications in general), it is assumed that applications can block the current thread, (for example, for remote calls), and, for this reason, servlet containers use a large thread pool to absorb potential blocking during request handling.
+
+In Spring WebFlux (and non-blocking servers in general), it is assumed that applications do not block, and, therefore, non-blocking servers use a small, fixed-size thread pool (event loop workers) to handle requests.
+
+“To scale” and “small number of threads” may sound contradictory but to never block the current thread (and rely on callbacks instead) means that you do not need extra threads, as there are no blocking calls to absorb.
+
+### word
+assumptions n. 假定，设想（assumption复数形式）  
+assumed v. （无证据的）假设；（assume 的过去式及过去分词）  
+absorb vt. 吸收；吸引；承受；  
+scale 扩展  
+contradictory adj. 矛盾的；反对的；反驳的；抗辩的  
+
+### Invoking a Blocking API
+What if you do need to use a blocking library? Both Reactor and RxJava provide the publishOn operator to continue processing on a different thread. That means there is an easy escape hatch. Keep in mind, however, that blocking APIs are not a good fit for this concurrency model.
+
+### Mutable State
+In Reactor and RxJava, you declare logic through operators, and, at runtime, a reactive pipeline is formed where data is processed sequentially, in distinct stages. A key benefit of this is that it frees applications from having to protect mutable state because application code within that pipeline is never invoked concurrently.
+
+### word
+hatch n. 孵化；舱口  
+mutable adj. 可变的，易变的；反复无常的，用情不专的  
+formed 形成  
+
+###Threading Model
+   What threads should you expect to see on a server running with Spring WebFlux?
+   
+   On a “vanilla” Spring WebFlux server (for example, no data access nor other optional dependencies), you can expect one thread for the server and several others for request processing (typically as many as the number of CPU cores). Servlet containers, however, may start with more threads (for example, 10 on Tomcat), in support of both servlet (blocking) I/O and servlet 3.1 (non-blocking) I/O usage.
+### word
