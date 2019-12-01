@@ -176,4 +176,29 @@ formed 形成
    What threads should you expect to see on a server running with Spring WebFlux?
    
    On a “vanilla” Spring WebFlux server (for example, no data access nor other optional dependencies), you can expect one thread for the server and several others for request processing (typically as many as the number of CPU cores). Servlet containers, however, may start with more threads (for example, 10 on Tomcat), in support of both servlet (blocking) I/O and servlet 3.1 (non-blocking) I/O usage.
+   
+   The reactive WebClient operates in event loop style. So you can see a small, fixed number of processing threads related to that (for example, reactor-http-nio- with the Reactor Netty connector). However, if Reactor Netty is used for both client and server, the two share event loop resources by default.
+   
+   Reactor and RxJava provide thread pool abstractions, called Schedulers, to use with the publishOn operator that is used to switch processing to a different thread pool. The schedulers have names that suggest a specific concurrency strategy — for example, “parallel” (for CPU-bound work with a limited number of threads) or “elastic” (for I/O-bound work with a large number of threads). If you see such threads, it means some code is using a specific thread pool Scheduler strategy.
+   
+   Data access libraries and other third party dependencies can also create and use threads of their own.
+   
+   Configuring  
+   The Spring Framework does not provide support for starting and stopping servers. To configure the threading model for a server, you need to use server-specific configuration APIs, or, if you use Spring Boot, check the Spring Boot configuration options for each server. You can configure the WebClient directly. For all other libraries, see their respective documentation.
 ### word
+vanilla adj. 香草味的  
+respective adj. 分别的，各自的  
+
+### 1.2. Reactive Core
+The spring-web module contains the following foundational support for reactive web applications:
+
+For server request processing there are two levels of support.
+
+HttpHandler: Basic contract for HTTP request handling with non-blocking I/O and Reactive Streams back pressure, along with adapters for Reactor Netty, Undertow, Tomcat, Jetty, and any Servlet 3.1+ container.
+
+WebHandler API: Slightly higher level, general-purpose web API for request handling, on top of which concrete programming models such as annotated controllers and functional endpoints are built.
+
+For the client side, there is a basic ClientHttpConnector contract to perform HTTP requests with non-blocking I/O and Reactive Streams back pressure, along with adapters for Reactor Netty and for the reactive Jetty HttpClient. The higher level WebClient used in applications builds on this basic contract.
+
+For client and server, codecs to use to serialize and deserialize HTTP request and response content. 
+
