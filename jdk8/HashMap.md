@@ -16,5 +16,7 @@
 16、merely adv. 仅仅，只不过；只是 
 17、arbitrary adj. [数] 任意的；武断的；专制的  
 18、undetermined adj. 待定的；未确定的；缺乏决断力的；未解决的  
-19、detect bugs 出bug了，察觉出有bug了
+19、detect bugs 出bug了，察觉出有bug了  
 20、variance n. 变异；变化；不一致；分歧；[数] 方差  
+21、spread vi. 传播；伸展  
+22、evict vt. 驱逐；逐出  
