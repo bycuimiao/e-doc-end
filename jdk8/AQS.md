@@ -11,4 +11,5 @@
 11、desired 渴望的、想要的  
 12、scalability 可扩展性  
 13、throughput 吞吐量  
-14、
+14、maintainable 可维修的  
+15
